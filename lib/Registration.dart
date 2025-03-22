@@ -17,6 +17,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       context,
     );
     if (success) {
+      Navigator.pushReplacementNamed(context, '/login');
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('Registration Successful!.')),
       );
@@ -52,7 +53,21 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               onPressed: _registerUser,
               child: Text('Register'),
             ),
-          ],
+            InkWell(child:
+            GestureDetector(
+              onTap: () => Navigator.pushNamed(context, '/login'),
+              child: Text(
+                "Already Registered",
+                style: TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black, // You can change the color as needed
+                ),
+              ),
+
+
+            )
+            )],
         ),
       ),
     );
